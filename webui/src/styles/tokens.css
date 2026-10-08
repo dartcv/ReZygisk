@@ -1,0 +1,119 @@
+/* INFO: Design tokens. Light is the default and follows the reference board: cloud-blue
+         surfaces and one saturated blue for actions. Dark and AMOLED use the same roles, so the
+         components never hard-code a colour. */
+
+:root {
+  color-scheme: light;
+
+  --font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+
+  --ok: #1f9d63;
+  --warn: #c27d0e;
+  --error: #d2453b;
+  --idle: #7d8aa3;
+
+  --bg: #eaf2ff;
+  --veil-top: rgba(234, 242, 255, 0.06);
+  --veil-mid: rgba(234, 242, 255, 0.38);
+  --veil-bottom: rgba(234, 242, 255, 0.9);
+
+  --text: #14213d;
+  --text-muted: #56658a;
+  --text-soft: #8592ab;
+  --hero: #ffffff;
+  --hero-shadow: 0 1px 14px rgba(18, 56, 112, 0.38);
+
+  --accent: #3568c6;
+  --on-accent: #ffffff;
+  --accent-soft: #dde8fb;
+  --on-accent-soft: #1d4a9a;
+  --accent-shadow: 0 10px 22px rgba(53, 104, 198, 0.3);
+
+  --card: rgba(255, 255, 255, 0.8);
+  --card-strong: rgba(255, 255, 255, 0.94);
+  --card-stroke: rgba(255, 255, 255, 0.86);
+  --line: rgba(40, 72, 130, 0.1);
+  --control: rgba(255, 255, 255, 0.92);
+  --control-stroke: rgba(53, 104, 198, 0.24);
+  --switch-off: rgba(120, 136, 170, 0.36);
+  --shadow: 0 12px 30px rgba(37, 74, 140, 0.16);
+
+  --nav: rgba(255, 255, 255, 0.88);
+  --nav-shadow: 0 14px 34px rgba(37, 74, 140, 0.22);
+
+  --toast-bg: rgba(20, 33, 61, 0.92);
+  --toast-text: #ffffff;
+
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #0c1424;
+  --veil-top: rgba(8, 14, 28, 0.18);
+  --veil-mid: rgba(8, 14, 28, 0.5);
+  --veil-bottom: rgba(8, 14, 28, 0.93);
+
+  --text: #eaf1ff;
+  --text-muted: #b1bdd8;
+  --text-soft: #7f8eb2;
+  --hero-shadow: 0 1px 14px rgba(0, 0, 0, 0.55);
+
+  --accent: #8fb4ff;
+  --on-accent: #0a1d45;
+  --accent-soft: rgba(143, 180, 255, 0.18);
+  --on-accent-soft: #d3e3ff;
+  --accent-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+
+  --card: rgba(24, 36, 62, 0.82);
+  --card-strong: rgba(30, 44, 74, 0.94);
+  --card-stroke: rgba(255, 255, 255, 0.08);
+  --line: rgba(255, 255, 255, 0.08);
+  --control: rgba(40, 56, 92, 0.92);
+  --control-stroke: rgba(143, 180, 255, 0.3);
+  --switch-off: rgba(150, 165, 200, 0.3);
+  --shadow: 0 14px 34px rgba(0, 0, 0, 0.4);
+
+  --nav: rgba(18, 28, 50, 0.9);
+  --nav-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+
+  --toast-bg: rgba(234, 241, 255, 0.95);
+  --toast-text: #0b1a36;
+}
+
+:root[data-theme='amoled'] {
+  color-scheme: dark;
+
+  --bg: #000000;
+  --veil-top: rgba(0, 0, 0, 0.45);
+  --veil-mid: rgba(0, 0, 0, 0.78);
+  --veil-bottom: rgba(0, 0, 0, 0.96);
+
+  --text: #f2f2f4;
+  --text-muted: #a9a9b0;
+  --text-soft: #78787f;
+  --hero-shadow: 0 1px 12px rgba(0, 0, 0, 0.7);
+
+  --accent: #a9c4ff;
+  --on-accent: #06142f;
+  --accent-soft: rgba(169, 196, 255, 0.14);
+  --on-accent-soft: #d6e4ff;
+  --accent-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+
+  --card: rgba(20, 20, 24, 0.92);
+  --card-strong: rgba(28, 28, 34, 0.96);
+  --card-stroke: rgba(255, 255, 255, 0.06);
+  --line: rgba(255, 255, 255, 0.07);
+  --control: rgba(30, 30, 36, 0.95);
+  --control-stroke: rgba(169, 196, 255, 0.26);
+  --switch-off: rgba(140, 140, 150, 0.32);
+  --shadow: 0 14px 34px rgba(0, 0, 0, 0.6);
+
+  --nav: rgba(12, 12, 15, 0.94);
+  --nav-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+
+  --toast-bg: rgba(240, 240, 244, 0.95);
+  --toast-text: #09090b;
+}

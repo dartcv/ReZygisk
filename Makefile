@@ -39,6 +39,12 @@ MODULE_INPUTS = scripts/sign.py \
         installKsu installMagisk installAPatch                            \
         installKsuAndReboot installMagiskAndReboot installAPatchAndReboot
 
+# INFO: Rebuilds the React WebUI in webui/ into webroot/. Only needed after editing webui/src;
+#       the generated webroot/ is committed, so the module build itself needs no Node.js.
+.PHONY: webui
+webui:
+	cd webui && npm ci --no-audit --no-fund && npm run build
+
 debug:
 	$(MAKE) BUILD_TYPE=debug BUILD_DIR=$(BUILD_DIR) build
 
