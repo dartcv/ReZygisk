@@ -9,9 +9,10 @@
   inset: 0;
   z-index: 0;
   background-color: var(--bg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 35% 40%;
+  background-image:
+    radial-gradient(ellipse at 18% 12%, var(--wallpaper-glow), transparent 62%),
+    linear-gradient(145deg, var(--wallpaper-start), var(--wallpaper-end));
+  overflow: hidden;
   transform: translateZ(0);
   pointer-events: none;
 }
@@ -20,9 +21,15 @@
   position: absolute;
 }
 
+.wallpaper-motion {
+  position: absolute;
+  inset: 0;
+}
+
 .wallpaper-veil {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(180deg, var(--veil-top) 0%, var(--veil-mid) 55%, var(--veil-bottom) 100%);
 }
 
@@ -724,6 +731,36 @@ button.row:active {
 .module-arch {
   font-size: 12.5px;
   color: var(--text-muted);
+}
+
+.background-license {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.background-license summary {
+  color: var(--accent);
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.background-license summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.background-license pre {
+  max-height: 320px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card-strong);
+  font-size: 11px;
 }
 
 /* ---------- Choice lists (language and theme) ---------- */

@@ -13,6 +13,9 @@
   --idle: #7d8aa3;
 
   --bg: #eaf2ff;
+  --wallpaper-glow: #d5f1ff;
+  --wallpaper-start: #87b6d9;
+  --wallpaper-end: #547aaa;
   --veil-top: rgba(234, 242, 255, 0.06);
   --veil-mid: rgba(234, 242, 255, 0.38);
   --veil-bottom: rgba(234, 242, 255, 0.9);
@@ -20,8 +23,8 @@
   --text: #14213d;
   --text-muted: #56658a;
   --text-soft: #8592ab;
-  --hero: #ffffff;
-  --hero-shadow: 0 1px 14px rgba(18, 56, 112, 0.38);
+  --hero: #14213d;
+  --hero-shadow: 0 1px 12px rgba(255, 255, 255, 0.3);
 
   --accent: #3568c6;
   --on-accent: #ffffff;
@@ -52,6 +55,9 @@
   color-scheme: dark;
 
   --bg: #0c1424;
+  --wallpaper-glow: #365c82;
+  --wallpaper-start: #25436b;
+  --wallpaper-end: #10203c;
   --veil-top: rgba(8, 14, 28, 0.18);
   --veil-mid: rgba(8, 14, 28, 0.5);
   --veil-bottom: rgba(8, 14, 28, 0.93);
@@ -59,6 +65,7 @@
   --text: #eaf1ff;
   --text-muted: #b1bdd8;
   --text-soft: #7f8eb2;
+  --hero: #ffffff;
   --hero-shadow: 0 1px 14px rgba(0, 0, 0, 0.55);
 
   --accent: #8fb4ff;
@@ -87,6 +94,9 @@
   color-scheme: dark;
 
   --bg: #000000;
+  --wallpaper-glow: #18263c;
+  --wallpaper-start: #111c30;
+  --wallpaper-end: #030609;
   --veil-top: rgba(0, 0, 0, 0.45);
   --veil-mid: rgba(0, 0, 0, 0.78);
   --veil-bottom: rgba(0, 0, 0, 0.96);
@@ -94,6 +104,7 @@
   --text: #f2f2f4;
   --text-muted: #a9a9b0;
   --text-soft: #78787f;
+  --hero: #ffffff;
   --hero-shadow: 0 1px 12px rgba(0, 0, 0, 0.7);
 
   --accent: #a9c4ff;

@@ -113,7 +113,7 @@ function Shell() {
 
   return (
     <>
-      <Wallpaper />
+      <Wallpaper active={!sub} />
       <div className={sub ? 'shell has-sub' : 'shell'}>
         <TabStage />
       </div>

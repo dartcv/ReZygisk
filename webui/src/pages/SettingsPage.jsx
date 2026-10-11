@@ -3,6 +3,7 @@ import { TopBar } from '../components/TopBar.jsx'
 import { usePrefs } from '../context/PrefsContext.jsx'
 import { useNav } from '../context/NavContext.jsx'
 import { useStatus } from '../context/StatusContext.jsx'
+import backgroundNotices from '../../public/THIRD_PARTY_NOTICES.txt?raw'
 
 /* INFO: The lang files name the system theme "system_based", while the stored mode is "system". */
 const THEME_KEY = { amoled: 'amoled', dark: 'dark', light: 'light', system: 'system_based' }
@@ -90,6 +91,19 @@ export function SettingsPage() {
         <CreditBlock label={t('pages.settings.moduleLicense')}>
           <span className='credit-text'>AGPL 3</span>
         </CreditBlock>
+
+        <CreditBlock label={t('pages.settings.backgroundCredits')}>
+          <ExternalLink url='https://github.com/tengbao/vanta'>Vanta Waves · Teng Bao</ExternalLink>
+          <span className='credit-sep'>/</span>
+          <ExternalLink url='https://github.com/mrdoob/three.js'>Three.js</ExternalLink>
+          <span className='credit-text'>MIT</span>
+        </CreditBlock>
+
+        <details className='background-license'>
+          <summary>{t('pages.settings.backgroundLicense')}</summary>
+          <p>{t('pages.settings.backgroundPermission')}</p>
+          <pre>{backgroundNotices}</pre>
+        </details>
       </Card>
 
       {info.version ? <p className='footnote'>ReZygisk {info.version}</p> : null}

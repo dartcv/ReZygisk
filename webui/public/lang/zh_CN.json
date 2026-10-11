@@ -65,7 +65,10 @@
       "moduleDevelopers": "模块开发者",
       "WebUIDevelopers": "WebUI 开发者",
       "orginalDevelopers": "原始模块开发者",
-      "moduleLicense": "模块许可证"
+      "moduleLicense": "模块许可证",
+      "backgroundCredits": "动态背景",
+      "backgroundLicense": "背景使用声明与许可",
+      "backgroundPermission": "动态背景使用 Teng Bao 的 Vanta Waves 和 Three.js，均采用 MIT 许可。保留以下版权与许可声明后，可嵌入使用、修改及公开分发。"
     },
     "mini_settings_language": {
       "title": "语言"

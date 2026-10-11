@@ -25,7 +25,7 @@ From the repository root, `make webui` installs and builds, and `make all` packa
 | `src/lib/` | Logic with no UI: shell quoting, command table, state derivation, storage keys, i18n, KernelSU bridge, dev mock |
 | `src/components/`, `src/pages/` | UI building blocks and page content |
 | `src/styles/` | Design tokens for light, dark and AMOLED themes, then the layout and components |
-| `public/lang/` | Crowdin translation files, copied unchanged |
+| `public/lang/` | Crowdin translations, with background credits added in English and Chinese |
 
 ## Compatibility notes
 
@@ -39,11 +39,18 @@ From the repository root, `make webui` installs and builds, and `make all` packa
 
 ## Assets
 
-- `src/assets/wallpaper.webp`: "Anime Sky Meadow" by 防人, from
-  https://wall.alphacoders.com/big.php?i=858291 (1920×1200). The site lists it as
-  **free for private, personal use; contact the artist for any other use**. Before publishing
-  a release, either get permission or replace the file with an image you are allowed to
-  distribute. Keep the same file name, `wallpaper.webp`.
+- Animated background: [Vanta Waves](https://github.com/tengbao/vanta), Vanta 0.5.24,
+  Copyright 2020 Teng Bao, rendered with [Three.js](https://github.com/mrdoob/three.js)
+  0.134.0, Copyright 2010–2021 three.js authors. Both use the **MIT License**, which
+  permits embedding, modification and public redistribution with the copyright and
+  permission notices retained. Complete upstream notices are in
+  `public/THIRD_PARTY_NOTICES.txt`, copied to `webroot/` and shown under Settings →
+  Background licenses and attribution. Preserve that file when packaging a release.
+  The animation and dependencies are bundled locally, with no runtime CDN requests.
+  Light, dark and AMOLED have matching blue palettes; a static CSS gradient is used
+  when WebGL is unavailable or the system requests reduced motion. The renderer is
+  released while the document is hidden or its background is covered by a sub-page.
+  The previous personal-use-only illustration has been removed.
 - `src/components/materialIcons.js`: Material Symbols paths (Apache-2.0), taken from the
   icons the WebUI already shipped.
 - `src/assets/fonts/poppins.ttf`: unchanged from the previous WebUI.
