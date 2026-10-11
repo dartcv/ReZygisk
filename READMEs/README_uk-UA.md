@@ -1,4 +1,4 @@
-# ReZygisk
+# Rezygisk-Modded
 
 [English](../README.md)
 

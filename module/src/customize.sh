@@ -25,7 +25,7 @@ if [ "$BOOTMODE" ] && [ "$KSU" ]; then
   if [ "$(which magisk)" ]; then
     ui_print "*********************************************************"
     ui_print "! Multiple root implementation is NOT supported!"
-    ui_print "! Please uninstall Magisk before installing ReZygisk"
+    ui_print "! Please uninstall Magisk before installing Rezygisk-Modded"
     abort    "*********************************************************"
   fi
   elif [ "$BOOTMODE" ] && [ "$APATCH" ]; then
@@ -52,7 +52,7 @@ else
 fi
 
 VERSION=$(grep_prop version "${TMPDIR}/module.prop")
-ui_print "- Installing ReZygisk $VERSION"
+ui_print "- Installing Rezygisk-Modded $VERSION"
 
 # check android
 if [ "$API" -lt 25 ]; then

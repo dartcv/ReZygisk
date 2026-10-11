@@ -1,6 +1,8 @@
-# ReZygisk
+# Rezygisk-Modded
 
 [Español(Argentina)](/READMEs/README_es-AR.md)|[Bahasa Indonesia](/READMEs/README_id-ID.md)|[Português Brasileiro](/READMEs/README_pt-BR.md)|[Українська](/READMEs/README_uk-UA.md)|[Tiếng Việt](/READMEs/README_vi-VN.md)|[فارسی](/READMEs/README_fa-IR.md)|[简体中文](/READMEs/README_zh-CN.md)
+
+Rezygisk-Modded is a modified distribution of [ReZygisk](https://github.com/PerformanC/ReZygisk), with a redesigned React WebUI, locally bundled animated backgrounds and automatic system-language selection. Build archives use the `Rezygisk-Modded-` prefix. The original module ID (`rezygisk`) is retained for upgrade compatibility.
 
 ReZygisk is a fork of Zygisk Next, a standalone implementation of Zygisk, providing Zygisk API support for KernelSU, APatch and Magisk.
 

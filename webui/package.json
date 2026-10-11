@@ -1,8 +1,8 @@
 {
-  "name": "rezygisk-webui",
+  "name": "rezygisk-modded-webui",
   "private": true,
   "version": "1.0.0",
-  "description": "ReZygisk WebUI, built with React and Vite into ../webroot",
+  "description": "Rezygisk-Modded WebUI, built with React and Vite into ../webroot",
   "type": "module",
   "scripts": {
     "dev": "vite",

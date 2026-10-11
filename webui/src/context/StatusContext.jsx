@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import { commands } from '../lib/commands.js'
 import { exec } from '../lib/ksu.js'
 import { parseState } from '../lib/rezygisk.js'
+import { APP_NAME } from '../lib/brand.js'
 import { useToast } from './ToastContext.jsx'
 
 const POLL_INTERVAL_MS = 2000
@@ -44,7 +45,7 @@ export function StatusProvider({ children }) {
       .catch(() => {
         lastRaw.current = null
         setState(null)
-        if (!failing.current) toast('Error getting state of ReZygisk!')
+        if (!failing.current) toast(`Error getting state of ${APP_NAME}!`)
         failing.current = true
       })
       .finally(() => {

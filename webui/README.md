@@ -1,4 +1,4 @@
-# ReZygisk WebUI (React)
+# Rezygisk-Modded WebUI (React)
 
 React + Vite implementation of the module WebUI. The source lives here. The build writes into
 `../webroot/`, and that folder is what the module packages.

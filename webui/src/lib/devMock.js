@@ -1,4 +1,5 @@
 import { commands } from './commands.js'
+import { APP_NAME } from './brand.js'
 
 /* INFO: Answers for a plain browser (desktop preview, no `ksu` object). Monitor commands change
          the mock state, so the Actions buttons can be tried without a device. */
@@ -50,7 +51,7 @@ function runMonitor(action) {
 
 function respond(command) {
   if (command === commands.state) return ok(mockState())
-  if (command === commands.moduleProp) return ok('id=rezygisk\nname=ReZygisk\nversion=v1.0.0 (551-5b0a02b-release)\nversionCode=551\n')
+  if (command === commands.moduleProp) return ok(`id=rezygisk\nname=${APP_NAME}\nversion=v1.0.0 (551-5b0a02b-release)\nversionCode=551\n`)
   if (command === commands.kernel) return ok('4.19.325-DeepMoonX-d8a7145-128')
   if (command === commands.androidVersion) return ok('14')
   if (command === commands.languages) return ok(LANGUAGE_FILES.join('\n'))

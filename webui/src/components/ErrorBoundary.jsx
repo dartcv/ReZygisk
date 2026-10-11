@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { reportError } from '../lib/logger.js'
+import { APP_NAME } from '../lib/brand.js'
 
 /* INFO: Last line of defence. A render error shows a plain fallback instead of a blank page,
          and the error is written to the module's log file. The text is English on purpose,
@@ -23,7 +24,7 @@ export class ErrorBoundary extends Component {
 
     return (
       <div className='fatal' role='alert'>
-        <h1 className='fatal-title'>ReZygisk</h1>
+        <h1 className='fatal-title'>{APP_NAME}</h1>
         <p className='fatal-text'>Something went wrong while drawing this page. The details were written to the log file.</p>
         <button type='button' className='btn btn--filled' onClick={() => window.location.reload()}>
           <span>Reload</span>

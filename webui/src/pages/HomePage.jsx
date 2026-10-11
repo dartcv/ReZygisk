@@ -4,6 +4,7 @@ import { TopBar } from '../components/TopBar.jsx'
 import { usePrefs } from '../context/PrefsContext.jsx'
 import { useNav } from '../context/NavContext.jsx'
 import { useStatus } from '../context/StatusContext.jsx'
+import { APP_NAME } from '../lib/brand.js'
 import {
   monitorReason,
   monitorStatus,
@@ -31,7 +32,7 @@ export function HomePage() {
   return (
     <>
       <TopBar
-        title='ReZygisk'
+        title={APP_NAME}
         subtitle={info.version || unknown}
         trailing={<IconButton icon='refresh' label='Refresh status' onClick={refreshState} />}
       />
@@ -86,7 +87,7 @@ export function HomePage() {
       </Card>
 
       <Card>
-        <Caption>Root / ReZygisk</Caption>
+        <Caption>Root / {APP_NAME}</Caption>
         <Row title={t('pages.home.info.version')} value={info.version || unknown} />
         <Row title={t('pages.home.info.root')} value={(state && state.root) || unknown} />
       </Card>

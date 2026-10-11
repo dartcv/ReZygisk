@@ -1,6 +1,8 @@
-# ReZygisk
+# Rezygisk-Modded
 
 [English](../README.md)
+
+Rezygisk-Modded 是基于 [ReZygisk](https://github.com/PerformanC/ReZygisk) 的修改版，包含重新设计的 React WebUI、本地动态背景和自动跟随系统语言功能。构建压缩包使用 `Rezygisk-Modded-` 前缀；为兼容已有安装，模块 ID 继续使用 `rezygisk`。
 
 ReZygisk 是 Zygisk Next 的一个分支，是 Zygisk 的独立实现，为 KernelSU、APatch 和 Magisk 提供 Zygisk API 支持。
 

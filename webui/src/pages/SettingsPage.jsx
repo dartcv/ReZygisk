@@ -4,6 +4,7 @@ import { usePrefs } from '../context/PrefsContext.jsx'
 import { useNav } from '../context/NavContext.jsx'
 import { useStatus } from '../context/StatusContext.jsx'
 import backgroundNotices from '../../public/THIRD_PARTY_NOTICES.txt?raw'
+import { APP_NAME } from '../lib/brand.js'
 
 /* INFO: The lang files name the system theme "system_based", while the stored mode is "system". */
 const THEME_KEY = { amoled: 'amoled', dark: 'dark', light: 'light', system: 'system_based' }
@@ -106,7 +107,7 @@ export function SettingsPage() {
         </details>
       </Card>
 
-      {info.version ? <p className='footnote'>ReZygisk {info.version}</p> : null}
+      {info.version ? <p className='footnote'>{APP_NAME} {info.version}</p> : null}
     </>
   )
 }

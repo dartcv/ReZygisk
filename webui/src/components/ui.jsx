@@ -1,5 +1,6 @@
 import { Icon } from './Icon.jsx'
 import { handleExternalLink } from '../lib/ksu.js'
+import { APP_NAME } from '../lib/brand.js'
 
 /* INFO: Small building blocks shared by every page. Keeping them here keeps the page files
          about content, not markup. */
@@ -129,8 +130,8 @@ export function Spinner({ label = 'Loading' }) {
 
 export function Splash() {
   return (
-    <div className='splash' role='status' aria-label='Loading ReZygisk'>
-      <span className='splash-title'>ReZygisk</span>
+    <div className='splash' role='status' aria-label={`Loading ${APP_NAME}`}>
+      <span className='splash-title'>{APP_NAME}</span>
       <Spinner />
     </div>
   )
