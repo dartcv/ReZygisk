@@ -42,7 +42,7 @@ export function saveThemeMode(mode) {
 }
 
 export function readLanguage() {
-  return read(STORAGE_KEYS.language) || read(STORAGE_KEYS.legacyLanguage) || 'en_US'
+  return read(STORAGE_KEYS.language) || read(STORAGE_KEYS.legacyLanguage) || 'system'
 }
 
 export function saveLanguage(code) {

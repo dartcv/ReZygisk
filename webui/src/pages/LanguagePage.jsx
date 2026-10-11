@@ -10,7 +10,7 @@ import { listLanguages, loadLanguage } from '../lib/i18n.js'
 /* INFO: Every language file is read once to get its langName, which is the name shown to the
          user. Files that fail to load are left out of the list. */
 export function LanguagePage() {
-  const { t, languageCode, setLanguage } = usePrefs()
+  const { t, languageMode, setLanguage } = usePrefs()
   const { closeSub } = useNav()
   const toast = useToast()
   const [options, setOptions] = useState(null)
@@ -61,8 +61,8 @@ export function LanguagePage() {
     <>
       {header}
       <div className='choice-list'>
-        {options.map((option) => {
-          const selected = option.code === languageCode
+        {[{ code: 'system', name: t('pages.mini_settings_language.system') }, ...options].map((option) => {
+          const selected = option.code === languageMode
 
           return (
             <button
@@ -74,7 +74,7 @@ export function LanguagePage() {
             >
               <span className='choice-text'>
                 <span className='row-title'>{option.name}</span>
-                <span className='row-description'>{option.code}</span>
+                <span className='row-description'>{option.code === 'system' ? t('pages.mini_settings_language.systemDescription') : option.code}</span>
               </span>
               {selected ? <Icon name='check' variant='filled' className='choice-check' /> : null}
             </button>

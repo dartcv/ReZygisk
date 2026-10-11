@@ -19,7 +19,7 @@ function CreditBlock({ label, children }) {
 }
 
 export function SettingsPage() {
-  const { t, languageName, themeMode, config, setFullscreenEnabled, setSystemFont } = usePrefs()
+  const { t, languageMode, languageName, themeMode, config, setFullscreenEnabled, setSystemFont } = usePrefs()
   const { openSub } = useNav()
   const { info } = useStatus()
 
@@ -32,7 +32,7 @@ export function SettingsPage() {
           icon='language'
           title={t('pages.settings.language.title')}
           description={t('pages.settings.language.description')}
-          value={languageName}
+          value={languageMode === 'system' ? `${t('pages.mini_settings_language.system')} · ${languageName}` : languageName}
           onClick={() => openSub('language')}
         />
         <Row

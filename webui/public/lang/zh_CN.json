@@ -71,7 +71,9 @@
       "backgroundPermission": "动态背景使用 Teng Bao 的 Vanta Waves 和 Three.js，均采用 MIT 许可。保留以下版权与许可声明后，可嵌入使用、修改及公开分发。"
     },
     "mini_settings_language": {
-      "title": "语言"
+      "title": "语言",
+      "system": "跟随系统",
+      "systemDescription": "自动使用设备的首选语言。"
     },
     "mini_settings_theme": {
       "title": "更改 WebUI 主题",

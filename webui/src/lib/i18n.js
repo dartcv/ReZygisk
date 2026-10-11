@@ -1,7 +1,13 @@
 import { commands } from './commands.js'
 import { exec } from './ksu.js'
 
-export const FALLBACK_LANGUAGE = 'en_US'
+export { FALLBACK_LANGUAGE } from './locale.js'
+
+// Build the default list from shipped files so detection works before the device responds.
+export const BUNDLED_LANGUAGES = Object.keys(import.meta.glob('../../public/lang/*.json', {
+  eager: true,
+  import: 'langName',
+})).map((path) => path.split('/').pop().replace(/\.json$/, ''))
 
 /* INFO: Only these language prefixes are written right to left. */
 const RTL_PREFIXES = ['ar', 'fa', 'he', 'ur']

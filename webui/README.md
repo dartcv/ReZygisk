@@ -32,6 +32,13 @@ From the repository root, `make webui` installs and builds, and `make all` packa
 - All URLs are relative (`base: './'`). KernelSU and WebUI X serve the module from a virtual origin.
 - The UI uses `window.ksu` (`exec`, `fullScreen`). Without it, `src/lib/devMock.js` answers the commands.
 - Storage keys are unchanged: `/ReZygisk/theme` and `/ReZygisk/webui_config`. The language is read from `/ReZygisk/language`, falling back to the old `/TreatWheel/language`.
+- Without a saved language, the UI follows the system (`navigator.languages`, with
+  `navigator.language` as a fallback). Language settings include a “Follow system”
+  option; explicit selections, including legacy ones, keep taking priority. Detection
+  tries the preferred languages in order, matching the full locale, region, then language,
+  and defaults to English when none are supported. It refreshes on `languagechange`,
+  window focus and return from the background. Only Simplified Chinese is currently
+  bundled, so other Chinese locales use that translation.
 - Translation keys keep their layout (`pages.*`, `globals.*`). Missing keys fall back to `en_US`. Two key spellings are intentional (`notAvaliable`, `orginalDevelopers`); see the comments in the code.
 - Output targets WebView with ES2017 syntax. `queueMicrotask` is polyfilled for older WebViews.
 - Links leave the WebUI only as `https://github.com/...`, through an Android intent (`am start`). Any other host is refused.

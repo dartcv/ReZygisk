@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
-import { createTranslator, FALLBACK_LANGUAGE, isRtl, loadLanguage } from '../lib/i18n.js'
+import { BUNDLED_LANGUAGES, createTranslator, FALLBACK_LANGUAGE, isRtl, listLanguages, loadLanguage } from '../lib/i18n.js'
+import { matchSystemLanguage, systemLanguages } from '../lib/locale.js'
 import { notify } from '../lib/notify.js'
 import { setFullScreen } from '../lib/ksu.js'
 import {
@@ -30,9 +31,45 @@ export function PrefsProvider({ children }) {
   const [themeMode, setThemeModeState] = useState(readThemeMode)
   const [systemDark, setSystemDark] = useState(prefersDark)
   const [config, setConfig] = useState(readConfig)
-  const [languageCode, setLanguageCode] = useState(readLanguage)
+  const [languageMode, setLanguageMode] = useState(readLanguage)
+  const [preferredLanguages, setPreferredLanguages] = useState(systemLanguages)
+  const [availableLanguages, setAvailableLanguages] = useState(BUNDLED_LANGUAGES)
+  const languageCode = languageMode === 'system'
+    ? matchSystemLanguage(preferredLanguages, availableLanguages)
+    : languageMode
   const [fallback, setFallback] = useState(null)
   const [loaded, setLoaded] = useState({ code: null, dictionary: null })
+
+  useEffect(() => {
+    let alive = true
+    listLanguages().then((codes) => {
+      if (alive && codes.length) setAvailableLanguages(codes)
+    }).catch(() => {
+      // Keep the bundled language list if the root-manager bridge is unavailable.
+    })
+
+    return () => { alive = false }
+  }, [])
+
+  useEffect(() => {
+    function updateLanguage() {
+      setPreferredLanguages(systemLanguages())
+    }
+
+    function onVisible() {
+      if (!document.hidden) updateLanguage()
+    }
+
+    window.addEventListener('languagechange', updateLanguage)
+    window.addEventListener('focus', updateLanguage)
+    document.addEventListener('visibilitychange', onVisible)
+
+    return () => {
+      window.removeEventListener('languagechange', updateLanguage)
+      window.removeEventListener('focus', updateLanguage)
+      document.removeEventListener('visibilitychange', onVisible)
+    }
+  }, [])
 
   useEffect(() => {
     if (typeof window.matchMedia !== 'function') return undefined
@@ -114,7 +151,8 @@ export function PrefsProvider({ children }) {
 
   const setLanguage = useCallback((code) => {
     saveLanguage(code)
-    setLanguageCode(code)
+    setPreferredLanguages(systemLanguages())
+    setLanguageMode(code)
   }, [])
 
   const setFullscreenEnabled = useCallback((enabled) => {
@@ -126,7 +164,7 @@ export function PrefsProvider({ children }) {
     setConfig((current) => ({ ...current, enableSystemFont: enabled }))
   }, [])
 
-  const dictionary = loaded.dictionary
+  const dictionary = loaded.code === languageCode ? loaded.dictionary : null
   const t = useMemo(() => createTranslator(dictionary, fallback), [dictionary, fallback])
   const languageName = (dictionary && dictionary.langName) || (fallback && fallback.langName) || languageCode
 
@@ -137,13 +175,14 @@ export function PrefsProvider({ children }) {
     resolvedTheme,
     setThemeMode,
     languageCode,
+    languageMode,
     languageName,
     setLanguage,
     config,
     setFullscreenEnabled,
     setSystemFont,
   }), [
-    fallback, loaded.code, t, themeMode, resolvedTheme, setThemeMode, languageCode,
+    fallback, loaded.code, t, themeMode, resolvedTheme, setThemeMode, languageCode, languageMode,
     languageName, setLanguage, config, setFullscreenEnabled, setSystemFont,
   ])
 

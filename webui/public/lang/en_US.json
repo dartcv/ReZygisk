@@ -71,7 +71,9 @@
       "backgroundPermission": "Vanta Waves by Teng Bao and Three.js are used under the MIT License. Embedding, modification and public redistribution are permitted when the copyright and license notices below are retained."
     },
     "mini_settings_language": {
-      "title": "Change language"
+      "title": "Change language",
+      "system": "Follow system",
+      "systemDescription": "Automatically use your device's preferred language."
     },
     "mini_settings_theme": {
       "title": "Change WebUI theme",
